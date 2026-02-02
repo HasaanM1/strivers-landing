@@ -44,73 +44,49 @@
         .italic { font-family: 'Playfair Display', serif; font-style: italic; color: var(--emerald); }
         .hero p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; max-width: 700px; margin-inline: auto; }
         
-        .btn-main { 
-            background: var(--emerald); color: white; padding: 18px 40px; border-radius: 14px; 
-            text-decoration: none; font-weight: 700; font-size: 1.1rem; display: inline-block;
-            transition: 0.3s; box-shadow: 0 10px 30px rgba(46, 168, 93, 0.2);
-        }
+        .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .btn-main { background: var(--emerald); color: white; padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 30px rgba(46, 168, 93, 0.2); }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(46, 168, 93, 0.4); }
+        .btn-ios { background: rgba(255,255,255,0.03); color: var(--text-dim); padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 1px solid var(--border); }
 
-        .btn-ios {
-            display: inline-block; padding: 18px 40px; border-radius: 14px;
-            text-decoration: none; font-weight: 700; font-size: 1.1rem;
-            color: var(--text-dim); border: 2px solid var(--border);
-            margin-left: 10px; cursor: default;
-        }
+        .sos-banner { background: linear-gradient(90deg, #FF8C00, #E67E22); color: white; padding: 12px; text-align: center; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; }
 
-        .sos-banner { background: var(--accent-orange); color: white; padding: 12px; text-align: center; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; }
-
-        /* --- Layout Grid --- */
+        /* --- Sections --- */
         .container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         section { padding: 100px 8%; border-bottom: 1px solid var(--border); }
 
-        /* --- Phone Mockups --- */
-        .phone-mockup {
-            background: #000; border: 10px solid #1E293B; border-radius: 45px;
-            height: 540px; width: 270px; margin: 0 auto; overflow: hidden; position: relative;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-        }
+        /* --- Phone --- */
+        .phone-mockup { background: #000; border: 12px solid #1E293B; border-radius: 45px; height: 540px; width: 270px; margin: 0 auto; overflow: hidden; position: relative; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
         .app-screen { height: 100%; display: flex; flex-direction: column; background: var(--app-bg); }
-        .screen-top { background: var(--card-bg); color: var(--text-main); padding: 18px; font-weight: 800; text-align: center; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
-        .screen-content { flex-grow: 1; padding: 15px; }
+        .screen-top { background: #000; color: var(--text-main); padding: 18px; font-weight: 800; text-align: center; font-size: 0.85rem; border-bottom: 1px solid var(--border); }
 
-        /* --- Components --- */
+        /* --- UI Elements --- */
         .stat-card { background: var(--card-bg); padding: 15px; border-radius: 15px; margin-bottom: 12px; border: 1px solid var(--border); }
+        .sos-btn-mock { background: var(--accent-orange); color: white; padding: 12px; border-radius: 12px; text-align: center; font-weight: 800; font-size: 0.75rem; margin: 10px 0; }
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
         .cal-day { width: 100%; aspect-ratio: 1; background: rgba(255,255,255,0.05); border-radius: 4px; }
         .cal-day.active { background: var(--emerald); }
 
-        /* --- Pulse Section Styling --- */
-        .pulse-display { flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-        .live-tag { background: #FF4B4B; color: white; font-size: 0.6rem; padding: 2px 8px; border-radius: 4px; font-weight: 800; margin-bottom: 10px; }
+        /* --- Ramadan --- */
+        .ramadan-roadmap { background: linear-gradient(180deg, var(--app-bg) 0%, #064e3b 100%); }
+        .roadmap-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 24px; border: 1px solid rgba(46, 168, 93, 0.3); }
 
-        /* --- Ramadan Roadmap --- */
-        .ramadan-roadmap { background: linear-gradient(180deg, var(--app-bg) 0%, #064e3b 100%); position: relative; }
-        .roadmap-card { background: rgba(255,255,255,0.05); backdrop-filter: blur(10px); padding: 30px; border-radius: 24px; border: 1px solid rgba(46, 168, 93, 0.3); }
-
-        /* --- Wisdom Hub --- */
-        .wisdom-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 25px; margin-top: 50px; }
-        .wisdom-card { background: var(--card-bg); padding: 30px; border-radius: 20px; border: 1px solid var(--border); transition: 0.3s; }
-        .wisdom-card:hover { border-color: var(--emerald); transform: translateY(-5px); }
-
-        /* --- Legal Modals --- */
+        /* --- Legal --- */
         #legalModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; overflow-y:auto; padding:50px 8%; }
         .legal-box { max-width:800px; margin:0 auto; background:var(--card-bg); padding:40px; border-radius:24px; border:1px solid var(--border); position:relative; }
 
         footer { padding: 80px 8% 40px; text-align: center; color: var(--text-dim); }
+        .footer-link { color: var(--text-dim); text-decoration: none; transition: 0.2s; }
+        .footer-link:hover { color: var(--emerald); }
 
-        @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; text-align: center; }
-            .order-mobile { order: -1; }
-            .btn-ios { margin-left: 0; margin-top: 15px; display: block; }
-        }
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; text-align: center; } .order-mobile { order: -1; } .hero-actions { flex-direction: column; } }
     </style>
 </head>
 <body>
 
     <nav>
         <a href="#" class="logo">STRIVERS<span>.</span></a>
-        <a href="#download" class="btn-main" style="padding: 8px 20px; font-size: 0.8rem; border-radius: 8px;">Get App</a>
+        <a href="#download" class="btn-main" style="padding: 10px 24px; font-size: 0.8rem; border-radius: 8px;">Get App</a>
     </nav>
 
     <header class="hero">
@@ -132,19 +108,18 @@
             <div>
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">The Collective Pulse</h2>
                 <p style="color: var(--text-dim); margin-bottom: 25px;">You are never fighting alone. Witness the heartbeat of the Ummah with real-time community Quran sessions and the <strong>Wall of Sabr</strong>.</p>
-                <p style="color: var(--text-dim);">Share your patience, document your victories, and feel the strength of thousands striving toward the same goal.</p>
+                <div style="background: rgba(46,168,93,0.1); padding: 15px; border-radius: 15px; border: 1px solid var(--emerald);">
+                    <p style="font-size: 0.8rem; font-weight: 800; color: #FF4B4B;">● LIVE NOW</p>
+                    <p style="font-weight: 800;">Surah Yusuf</p>
+                    <p style="font-size: 0.7rem; opacity: 0.7;">142 Strivers Listening Together</p>
+                </div>
             </div>
             <div class="phone-mockup">
                 <div class="app-screen">
                     <div class="screen-top">Community Pulse</div>
-                    <div class="pulse-display">
+                    <div style="flex-grow:1; display:flex; flex-direction:column; align-items:center; justify-content:center;">
                         <div style="font-size: 4rem; color: var(--emerald); font-weight: 800; line-height: 1;" id="live-hearts">• 3</div>
                         <p style="text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; color: var(--text-dim);">Hearts Striving Together</p>
-                    </div>
-                    <div style="background: rgba(46, 168, 93, 0.1); border: 1px solid var(--emerald); margin: 15px; padding: 15px; border-radius: 15px;">
-                        <div class="live-tag">LIVE NOW</div>
-                        <p style="font-weight: 800; font-size: 0.8rem;">Surah Yusuf</p>
-                        <p style="opacity: 0.7; font-size: 0.65rem;">Recited by Al-Luhaidan</p>
                     </div>
                 </div>
             </div>
@@ -156,22 +131,18 @@
             <div class="phone-mockup order-mobile">
                 <div class="app-screen">
                     <div class="screen-top">Home Dashboard</div>
-                    <div class="screen-content">
+                    <div style="padding: 15px;">
                         <div class="stat-card">
                             <p style="font-size: 0.6rem; color: var(--emerald); font-weight: 800;">TODAY'S NAME</p>
                             <p style="font-weight: 800; font-size: 1.1rem;">Ar-Raheem</p>
                         </div>
-                        <div style="background: var(--accent-orange); padding: 12px; border-radius: 12px; text-align: center; color: white; font-weight: 800; font-size: 0.7rem;">I'M TEMPTED — GET HELP</div>
-                        <div style="margin-top: 20px; border-left: 3px solid var(--emerald); padding-left: 12px;">
-                            <p style="font-size: 0.6rem; opacity: 0.5;">CURRENT JOURNEY</p>
-                            <p style="font-size: 0.8rem;">The Sprout of Renewal</p>
-                        </div>
+                        <div class="sos-btn-mock">I'M TEMPTED — GET HELP</div>
                     </div>
                 </div>
             </div>
             <div>
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Your Daily Center</h2>
-                <p style="color: var(--text-dim); margin-bottom: 25px;">The dashboard keeps your Niyyah (intention) clear. With daily Attributes of Allah for reflection and rapid-access habit support, it's your spiritual command center.</p>
+                <p style="color: var(--text-dim);">From the Name of Allah of the day to rapid-access support, your dashboard keeps your Niyyah clear and your struggle supported.</p>
             </div>
         </div>
     </section>
@@ -179,21 +150,19 @@
     <section id="journey">
         <div class="container">
             <div>
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">The Journey Tracker</h2>
-                <p style="color: var(--text-dim); margin-bottom: 25px;">Track your Salah, habits, and purity milestones with a clean, visual calendar. We focus on consistency and growth, helping you visualize your progress without the weight of shame.</p>
+                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Track the Journey</h2>
+                <p style="color: var(--text-dim);">Visualize your consistency with our clean calendar. We focus on growth and patience, allowing you to see your progress without the weight of shame.</p>
             </div>
             <div class="phone-mockup">
                 <div class="app-screen">
                     <div class="screen-top">My Journey</div>
-                    <div class="screen-content">
-                        <p style="font-size: 0.7rem; font-weight: 800; margin-bottom: 10px;">FEBRUARY 2026</p>
+                    <div style="padding: 15px;">
                         <div class="calendar-grid">
                             <div class="cal-day active"></div><div class="cal-day active"></div><div class="cal-day active"></div>
                             <div class="cal-day active"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div>
-                            <div class="cal-day active"></div><div class="cal-day active"></div><div class="cal-day active"></div>
                         </div>
-                        <div class="stat-card" style="margin-top: 30px;">
-                            <p style="font-size: 0.6rem; color: var(--emerald); font-weight: 800;">TOTAL DAYS CLEAN</p>
+                        <div class="stat-card" style="margin-top:20px;">
+                            <p style="font-size: 0.6rem; color: var(--emerald);">TOTAL DAYS CLEAN</p>
                             <p style="font-weight: 800; font-size: 1.5rem;">42 Days</p>
                         </div>
                     </div>
@@ -202,53 +171,38 @@
         </div>
     </section>
 
-    <section id="ramadan" class="ramadan-roadmap">
+    <section class="ramadan-roadmap" id="ramadan">
         <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
             <h2 style="font-size: 3rem;">Ramadan <span class="italic">Roadmap</span></h2>
-            <p style="color: #a7f3d0; margin-top: 15px;">Transform your month of mercy into a permanent shift with our 30-Day Seerah Narrative.</p>
+            <p style="color: #a7f3d0; margin-top: 15px;">Transform your month with our 30-Day Seerah Narrative.</p>
         </div>
         <div class="container">
             <div class="roadmap-card">
                 <h3 style="color: var(--emerald); margin-bottom: 10px;">30 Days of Seerah</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8;">A day-by-day narrative journey through the Prophet's life (PBUH), specifically highlighting lessons of resilience and purity.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">A day-by-day narrative journey specifically highlighting lessons of resilience.</p>
             </div>
             <div class="roadmap-card">
                 <h3 style="color: var(--emerald); margin-bottom: 10px;">Sprout of Renewal</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Enhanced tracking for Taraweeh, Tahajjud, and Dhikr to build momentum that carries long after the Eid takbeers.</p>
+                <p style="font-size: 0.9rem; opacity: 0.8;">Enhanced tracking for Taraweeh and Tahajjud to build permanent momentum.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="wisdom">
-        <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-            <h2 style="font-size: 2.5rem;">The Wisdom Hub</h2>
-            <p style="color: var(--text-dim);">A curated library of knowledge for the modern seeker.</p>
-        </div>
-        <div class="wisdom-grid">
-            <div class="wisdom-card"><h3>✨ Attributes</h3><p>Daily reflections on the Names of Allah to reshape your character.</p></div>
-            <div class="wisdom-card"><h3>🛡️ Ummah Heroes</h3><p>Biographies of those who mastered their nafs and changed the world.</p></div>
-            <div class="wisdom-card"><h3>⚡ Sunnah Hacks</h3><p>Prophetic optimizations for productivity, health, and focus.</p></div>
-            <div class="wisdom-card"><h3>💬 Wall of Sabr</h3><p>Community milestones and shared patience from around the globe.</p></div>
         </div>
     </section>
 
     <div id="legalModal">
         <div class="legal-box">
             <button onclick="closeLegal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
-            <div id="legalContent" style="font-size:0.9rem; color:var(--text-dim); line-height:1.8;"></div>
+            <div id="legalContent"></div>
         </div>
     </div>
 
     <footer id="download">
         <h2 style="font-size: 2rem; margin-bottom: 10px;">Begin Your Path.</h2>
-        <p style="color: var(--text-dim); margin-bottom: 30px;">Download on Android today. iOS coming soon.</p>
-        <div class="footer-btns">
-            <a href="#" class="btn-main">Get it on Google Play</a>
-        </div>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Questions? Reach out to <a href="mailto:salaam@striverspath.com" class="footer-link" style="color:var(--emerald);">salaam@striverspath.com</a></p>
+        <a href="#" class="btn-main">Download App Now</a>
         
         <div style="margin-top: 60px; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-dim);">
-            <a href="javascript:void(0)" onclick="showLegal('privacy')" style="color:var(--text-dim); text-decoration:none; margin:0 10px;">Privacy Policy</a> | 
-            <a href="javascript:void(0)" onclick="showLegal('terms')" style="color:var(--text-dim); text-decoration:none; margin:0 10px;">Terms of Use</a>
+            <a href="javascript:void(0)" onclick="showLegal('privacy')" class="footer-link">Privacy Policy</a> | 
+            <a href="javascript:void(0)" onclick="showLegal('terms')" class="footer-link">Terms of Use</a>
         </div>
         
         <div style="margin-top: 20px; font-size: 0.7rem; opacity:0.5;">
@@ -258,7 +212,6 @@
     </footer>
 
     <script>
-        // --- Live Heart Counter ---
         const heartsEl = document.getElementById('live-hearts');
         setInterval(() => {
             if(heartsEl) {
@@ -268,29 +221,16 @@
             }
         }, 4000);
 
-        // --- Legal Data ---
         const legalData = {
             privacy: `
                 <h2 style="color:white; margin-bottom:20px;">Privacy Policy</h2>
-                <p><strong>Last Updated: February 2026</strong></p><br>
-                <p>At Strivers: Path to Purity, we understand the sensitive nature of your journey. Your privacy is our highest priority.</p><br>
-                <h3 style="color:var(--emerald);">1. Data Collection</h3>
-                <p>We collect minimal data required to provide app functionality, including account information and progress statistics. Your habit-tracking data is used solely for your visual progress.</p><br>
-                <h3 style="color:var(--emerald);">2. Data Security</h3>
-                <p>We use industry-standard encryption to protect your data. We never sell, trade, or rent your personal struggle or progress data to third parties.</p><br>
-                <h3 style="color:var(--emerald);">3. Community Features</h3>
-                <p>When using the "Wall of Sabr," your posts are shared with the community. We advise users not to share personally identifiable information in public notes.</p>
+                <p>At Strivers: Path to Purity, we understand the sensitive nature of your journey.</p><br>
+                <p>We never sell your data. For inquiries, contact <strong>legal@striverspath.com</strong>.</p>
             `,
             terms: `
                 <h2 style="color:white; margin-bottom:20px;">Terms of Use</h2>
-                <p><strong>Last Updated: February 2026</strong></p><br>
-                <p>By using Strivers: Path to Purity, you agree to the following terms:</p><br>
-                <h3 style="color:var(--emerald);">1. Community Conduct</h3>
-                <p>Strivers is a sanctuary. Harassment, explicit content, or judgmental behavior on the Wall of Sabr will result in an immediate permanent ban.</p><br>
-                <h3 style="color:var(--emerald);">2. Spiritual Nature</h3>
-                <p>This app is a spiritual and habit-tracking tool. It is not a substitute for professional medical or mental health therapy.</p><br>
-                <h3 style="color:var(--emerald);">3. Account Responsibility</h3>
-                <p>You are responsible for maintaining the confidentiality of your account login information.</p>
+                <p>Strivers is a community of respect. Harassment will result in a ban.</p><br>
+                <p>Contact <strong>legal@striverspath.com</strong> for more info.</p>
             `
         };
 
@@ -305,7 +245,6 @@
             document.body.style.overflow = 'auto';
         }
 
-        // --- Animation Observer ---
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -315,7 +254,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('section, .wisdom-card').forEach(el => {
+        document.querySelectorAll('section, .roadmap-card').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = "translateY(30px)";
             el.style.transition = "0.8s ease-out";
