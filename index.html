@@ -38,6 +38,18 @@
         .logo { font-weight: 800; font-size: 1.5rem; color: var(--text-main); text-decoration: none; letter-spacing: -1px; }
         .logo span { color: var(--emerald); }
 
+        /* --- Beta Announcement --- */
+        .beta-bar {
+            background: rgba(46, 168, 93, 0.1);
+            border: 1px dashed var(--emerald);
+            margin: 120px 8% -100px; /* Positioned below nav */
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
         /* --- Hero Section --- */
         .hero { padding: 180px 8% 80px; text-align: center; max-width: 1000px; margin: 0 auto; }
         .hero h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
@@ -45,17 +57,12 @@
         .hero p { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; max-width: 700px; margin-inline: auto; }
         
         .hero-actions { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
-        .btn-main { background: var(--emerald); color: white; padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 30px rgba(46, 168, 93, 0.2); border: none; cursor: pointer; }
+        .btn-main { background: var(--emerald); color: white; padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: 0.3s; box-shadow: 0 10px 30px rgba(46, 168, 93, 0.2); border: none; cursor: pointer; display: inline-block; }
         .btn-main:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(46, 168, 93, 0.4); }
-        .btn-ios { background: rgba(255,255,255,0.03); color: var(--text-dim); padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 1px solid var(--border); display: inline-block; }
+        .btn-ios { background: rgba(255,255,255,0.03); color: var(--text-dim); padding: 18px 40px; border-radius: 14px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 1px solid var(--border); }
 
         .sos-banner { background: linear-gradient(90deg, #FF8C00, #E67E22); color: white; padding: 12px; text-align: center; font-weight: 800; font-size: 0.85rem; letter-spacing: 1px; }
 
-        <div style="background: rgba(46,168,93,0.1); border: 1px dashed var(--emerald); margin: 20px 8%; padding: 20px; border-radius: 15px; text-align: center;">
-        <p style="font-weight: 800; color: var(--emerald);">BETA TESTING OPEN</p>
-        <p style="font-size: 0.9rem; margin-bottom: 15px;">We're looking for 20 dedicated Strivers to test our Android build.</p>
-        <a href="YOUR_GOOGLE_FORM_LINK_HERE" class="btn-main" style="padding: 10px 20px; font-size: 0.9rem;">Apply to Test</a>
-        </div>
         /* --- Sections --- */
         .container { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
         section { padding: 100px 8%; border-bottom: 1px solid var(--border); }
@@ -67,14 +74,10 @@
 
         /* --- UI Elements --- */
         .stat-card { background: var(--card-bg); padding: 15px; border-radius: 15px; margin-bottom: 12px; border: 1px solid var(--border); }
-        .sos-btn-mock { background: var(--accent-orange); color: white; padding: 12px; border-radius: 12px; text-align: center; font-weight: 800; font-size: 0.75rem; margin: 10px 0; box-shadow: 0 4px 15px rgba(255, 140, 0, 0.3); }
+        .sos-btn-mock { background: var(--accent-orange); color: white; padding: 12px; border-radius: 12px; text-align: center; font-weight: 800; font-size: 0.75rem; margin: 10px 0; }
         .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; margin-top: 10px; }
         .cal-day { width: 100%; aspect-ratio: 1; background: rgba(255,255,255,0.05); border-radius: 4px; }
         .cal-day.active { background: var(--emerald); box-shadow: 0 0 10px var(--emerald); }
-
-        /* --- Ramadan --- */
-        .ramadan-roadmap { background: linear-gradient(180deg, var(--app-bg) 0%, #064e3b 100%); }
-        .roadmap-card { background: rgba(255,255,255,0.05); padding: 30px; border-radius: 24px; border: 1px solid rgba(46, 168, 93, 0.3); }
 
         /* --- Legal --- */
         #legalModal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; overflow-y:auto; padding:50px 8%; }
@@ -82,13 +85,11 @@
 
         footer { padding: 80px 8% 40px; text-align: center; color: var(--text-dim); }
         .footer-link { color: var(--text-dim); text-decoration: none; transition: 0.2s; cursor: pointer; }
-        .footer-link:hover { color: var(--emerald); }
 
         @media (max-width: 768px) { 
-            .container { grid-template-columns: 1fr; text-align: center; gap: 40px; } 
+            .container { grid-template-columns: 1fr; text-align: center; } 
             .order-mobile { order: -1; } 
-            .hero-actions { flex-direction: column; align-items: center; } 
-            .hero { padding-top: 140px; }
+            .beta-bar { margin-top: 100px; }
         }
     </style>
 </head>
@@ -96,15 +97,21 @@
 
     <nav>
         <a href="#" class="logo">STRIVERS<span>.</span></a>
-        <a href="#download" class="btn-main" style="padding: 10px 24px; font-size: 0.8rem; border-radius: 8px;">Get App</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScvD3NwJgKy-ggpozN5mrW4punDpX7BlxRrLzjyWgrdIFI3CA/viewform?usp=dialog" target="_blank" class="btn-main" style="padding: 10px 24px; font-size: 0.8rem; border-radius: 8px;">Apply to Test</a>
     </nav>
+
+    <div class="beta-bar">
+        <p style="font-weight: 800; color: var(--emerald); letter-spacing: 1px;">BETA TESTING NOW OPEN</p>
+        <p style="font-size: 0.9rem; margin-bottom: 15px; color: var(--text-dim);">Help us build the sanctuary. Join our private Android internal test group.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScvD3NwJgKy-ggpozN5mrW4punDpX7BlxRrLzjyWgrdIFI3CA/viewform?usp=dialog" target="_blank" class="btn-main" style="padding: 10px 25px; font-size: 0.85rem; border-radius: 10px;">Join Internal Test</a>
+    </div>
 
     <header class="hero">
         <div style="margin-bottom: 15px;"><span style="color: var(--emerald); font-weight: 800; letter-spacing: 3px; font-size: 0.75rem;">HEAL THE FITRA</span></div>
         <h1>Find Your Focus.<br><span class="italic">Purify Your Path.</span></h1>
         <p>A spiritual sanctuary built for the modern struggle. Master your habits, track your growth, and connect with a global pulse of resilience.</p>
         <div class="hero-actions">
-            <a href="#download" class="btn-main">Download on Android</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScvD3NwJgKy-ggpozN5mrW4punDpX7BlxRrLzjyWgrdIFI3CA/viewform?usp=dialog" target="_blank" class="btn-main">Become a Tester</a>
             <span class="btn-ios">iOS Coming Soon</span>
         </div>
     </header>
@@ -117,12 +124,7 @@
         <div class="container">
             <div>
                 <h2 style="font-size: 2.5rem; margin-bottom: 20px;">The Collective Pulse</h2>
-                <p style="color: var(--text-dim); margin-bottom: 25px;">You are never fighting alone. Witness the heartbeat of the Ummah with real-time community Quran sessions and the <strong>Wall of Sabr</strong>.</p>
-                <div style="background: rgba(46,168,93,0.1); padding: 15px; border-radius: 15px; border: 1px solid var(--emerald);">
-                    <p style="font-size: 0.8rem; font-weight: 800; color: #FF4B4B;">● LIVE NOW</p>
-                    <p style="font-weight: 800;">Surah Yusuf</p>
-                    <p style="font-size: 0.7rem; opacity: 0.7;">142 Strivers Listening Together</p>
-                </div>
+                <p style="color: var(--text-dim); margin-bottom: 25px;">You are never fighting alone. Witness the heartbeat of the Ummah with real-time community Quran sessions.</p>
             </div>
             <div class="phone-mockup">
                 <div class="app-screen">
@@ -136,79 +138,9 @@
         </div>
     </section>
 
-    <section id="home">
-        <div class="container">
-            <div class="phone-mockup order-mobile">
-                <div class="app-screen">
-                    <div class="screen-top">Home Dashboard</div>
-                    <div style="padding: 15px;">
-                        <div class="stat-card">
-                            <p style="font-size: 0.6rem; color: var(--emerald); font-weight: 800;">TODAY'S NAME</p>
-                            <p style="font-weight: 800; font-size: 1.1rem;">Ar-Raheem</p>
-                        </div>
-                        <div class="sos-btn-mock">I'M TEMPTED — GET HELP</div>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Your Daily Center</h2>
-                <p style="color: var(--text-dim);">From the Name of Allah of the day to rapid-access support, your dashboard keeps your Niyyah clear and your struggle supported.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="journey">
-        <div class="container">
-            <div>
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Track the Journey</h2>
-                <p style="color: var(--text-dim);">Visualize your consistency with our clean calendar. We focus on growth and patience, allowing you to see your progress without the weight of shame.</p>
-            </div>
-            <div class="phone-mockup">
-                <div class="app-screen">
-                    <div class="screen-top">My Journey</div>
-                    <div style="padding: 15px;">
-                        <div class="calendar-grid">
-                            <div class="cal-day active"></div><div class="cal-day active"></div><div class="cal-day active"></div>
-                            <div class="cal-day active"></div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div>
-                        </div>
-                        <div class="stat-card" style="margin-top:20px;">
-                            <p style="font-size: 0.6rem; color: var(--emerald);">TOTAL DAYS CLEAN</p>
-                            <p style="font-weight: 800; font-size: 1.5rem;">42 Days</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="ramadan-roadmap" id="ramadan">
-        <div style="text-align: center; max-width: 800px; margin: 0 auto 60px;">
-            <h2 style="font-size: 3rem;">Ramadan <span class="italic">Roadmap</span></h2>
-            <p style="color: #a7f3d0; margin-top: 15px;">Transform your month with our 30-Day Seerah Narrative.</p>
-        </div>
-        <div class="container">
-            <div class="roadmap-card">
-                <h3 style="color: var(--emerald); margin-bottom: 10px;">30 Days of Seerah</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8;">A day-by-day narrative journey specifically highlighting lessons of resilience.</p>
-            </div>
-            <div class="roadmap-card">
-                <h3 style="color: var(--emerald); margin-bottom: 10px;">Sprout of Renewal</h3>
-                <p style="font-size: 0.9rem; opacity: 0.8;">Enhanced tracking for Taraweeh and Tahajjud to build permanent momentum.</p>
-            </div>
-        </div>
-    </section>
-
-    <div id="legalModal">
-        <div class="legal-box">
-            <button onclick="closeLegal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
-            <div id="legalContent"></div>
-        </div>
-    </div>
-
     <footer id="download">
         <h2 style="font-size: 2rem; margin-bottom: 10px;">Begin Your Path.</h2>
-        <p style="color: var(--text-dim); margin-bottom: 30px;">Questions? Reach out to <a href="mailto:salaam@striverspath.com" class="footer-link" style="color:var(--emerald);">salaam@striverspath.com</a></p>
-        <a href="#" class="btn-main">Download App Now</a>
+        <p style="color: var(--text-dim); margin-bottom: 30px;">Questions? Reach out to <a href="mailto:salaam@striverspath.com" style="color:var(--emerald); text-decoration:none;">salaam@striverspath.com</a></p>
         
         <div style="margin-top: 60px; font-size: 0.8rem; letter-spacing: 1px; color: var(--text-dim);">
             <span onclick="showLegal('privacy')" class="footer-link">Privacy Policy</span> | 
@@ -221,7 +153,15 @@
         </div>
     </footer>
 
+    <div id="legalModal">
+        <div class="legal-box">
+            <button onclick="closeLegal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">&times;</button>
+            <div id="legalContent"></div>
+        </div>
+    </div>
+
     <script>
+        // Live Heartbeat Counter
         const heartsEl = document.getElementById('live-hearts');
         setInterval(() => {
             if(heartsEl) {
@@ -231,44 +171,10 @@
             }
         }, 4000);
 
+        // Legal Data
         const legalData = {
-            privacy: `
-                <h2 style="color:white; margin-bottom:20px;">Privacy Policy</h2>
-                <p><strong>Last Updated: February 2026</strong></p><br>
-                <p>At Strivers: Path to Purity, we understand the sensitive nature of your journey. Your privacy is our highest priority.</p><br>
-                <h3 style="color:var(--emerald);">1. Data Collection & Deletion</h3>
-                <p>We collect minimal data to provide app functionality. <strong>You may request full deletion of your account and data at any time by emailing strivers-support@striverspath.com.</strong></p><br>
-                <h3 style="color:var(--emerald);">2. No Third-Party Sharing</h3>
-                <p>We do not sell, trade, or rent your personal data. Your progress is yours alone.</p><br>
-                <h3 style="color:var(--emerald);">3. Security</h3>
-                <p>All data is handled via industry-standard encryption to ensure your "Wall of Sabr" reflections and habit tracking remain secure.</p>
-            `, // Added the missing comma here
-            terms: `
-                <h2 style="color:white; margin-bottom:20px;">Terms of Use</h2>
-                <p><strong>Effective Date: February 2026</strong></p><br>
-                <p>By accessing Strivers: Path to Purity, you agree to be bound by these terms. If you do not agree, please do not use the service.</p><br>
-            
-                <h3 style="color:var(--emerald);">1. Spiritual Nature & Disclaimer</h3>
-                <p>Strivers is a spiritual companion and habit-tracking tool. <strong>It is not a substitute for professional medical advice, psychiatric diagnosis, or treatment.</strong> Always seek the advice of a qualified health provider with any questions regarding a medical or mental health condition.</p><br>
-            
-                <h3 style="color:var(--emerald);">2. Community Conduct (The Pulse)</h3>
-                <p>The "Wall of Sabr" and "Community Pulse" are sacred spaces for encouragement. You agree not to post content that is:
-                <ul style="margin-left:20px; margin-top:10px;">
-                    <li>Explicit, obscene, or pornographic.</li>
-                    <li>Hate speech or discriminatory toward any group.</li>
-                    <li>Harassment or "shaming" of other users.</li>
-                </ul>
-                Violation of these rules will result in an <strong>immediate and permanent ban</strong> without refund (where applicable).</p><br>
-            
-                <h3 style="color:var(--emerald);">3. Age Requirement</h3>
-                <p>You must be at least 13 years of age to use this app. We do not knowingly collect data from children under 13.</p><br>
-            
-                <h3 style="color:var(--emerald);">4. Limitation of Liability</h3>
-                <p>Strivers is provided "as is." We do not guarantee specific spiritual or behavioral outcomes. Under no circumstances shall Strivers be liable for any direct or indirect damages resulting from the use of the app.</p><br>
-            
-                <h3 style="color:var(--emerald);">5. Contact</h3>
-                <p>For questions regarding these terms, please contact <strong>legal@striverspath.com</strong>.</p>
-            `
+            privacy: `<h2 style="color:white; margin-bottom:20px;">Privacy Policy</h2><p>Your privacy is our priority. We collect minimal data via Google Play for testing purposes only.</p>`,
+            terms: `<h2 style="color:white; margin-bottom:20px;">Terms of Use</h2><p>Strivers is a spiritual tool, not a medical substitute. Community conduct is strictly moderated.</p>`
         };
 
         function showLegal(type) {
@@ -282,6 +188,7 @@
             document.body.style.overflow = 'auto';
         }
 
+        // Scroll Animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -291,7 +198,7 @@
             });
         }, { threshold: 0.1 });
 
-        document.querySelectorAll('section, .roadmap-card').forEach(el => {
+        document.querySelectorAll('section').forEach(el => {
             el.style.opacity = 0;
             el.style.transform = "translateY(30px)";
             el.style.transition = "0.8s ease-out";
@@ -300,4 +207,3 @@
     </script>
 </body>
 </html>
-
