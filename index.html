@@ -35,7 +35,22 @@
             backdrop-filter: blur(12px); position: fixed; width: 100%; top: 0; z-index: 1000;
             border-bottom: 1px solid var(--border);
         }
-        .logo { font-weight: 800; font-size: 1.5rem; color: var(--text-main); text-decoration: none; letter-spacing: -1px; }
+        
+        /* Updated Logo Styles */
+        .logo { 
+            display: flex;
+            align-items: center;
+            font-weight: 800; 
+            font-size: 1.5rem; 
+            color: var(--text-main); 
+            text-decoration: none; 
+            letter-spacing: -1px; 
+        }
+        .logo img {
+            height: 40px; /* Adjust size as needed */
+            width: auto;
+            margin-right: 10px;
+        }
         .logo span { color: var(--emerald); }
 
         /* --- Beta Announcement (The Sanctuary Bar) --- */
@@ -94,13 +109,17 @@
             .container { grid-template-columns: 1fr; text-align: center; } 
             .order-mobile { order: -1; } 
             .beta-bar { margin-top: 100px; }
+            .logo img { height: 32px; } /* Slightly smaller on mobile */
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="logo">STRIVERS<span>.</span></a>
+        <a href="#" class="logo">
+            <img src="logo2.png" alt="Strivers Logo">
+            STRIVERS<span>.</span>
+        </a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScvD3NwJgKy-ggpozN5mrW4punDpX7BlxRrLzjyWgrdIFI3CA/viewform?usp=dialog" target="_blank" class="btn-main" style="padding: 10px 24px; font-size: 0.8rem; border-radius: 8px;">Apply to Test</a>
     </nav>
 
@@ -257,4 +276,3 @@
     </script>
 </body>
 </html>
-
